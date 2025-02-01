@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<h1>{% block title %}Update Your Listing{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<h4 id='message' style = "color:white">{{message}}</h4>
+<form method="post">
+    <div class="form-group">
+        <label for="title">Enter New Title</label><br>
+        <input class="form-control" style="color:white" id="title" name="title" value="{{listing.title}}" required><br>
+
+        <label for="description" style="color:white">Enter New Description</label><br>
+        <textarea class="form-control" id="description" name="description" required>{{listing.description}}</textarea><br>
+
+        <label for="price" style="color:white">Enter New Price</label><br>
+        <input class="form-control" style="color:white" type = number id="price" name="price" value="{{listing.price}}" required><br><br>
+
+        <input class="btn btn-primary" type="submit" value="Update Listing"><br>
+    </div>
+</form>
+<a href='/'>Back</a>
+{% endblock %}

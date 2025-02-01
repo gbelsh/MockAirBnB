@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<h1>Booking Page</h1>
+{% endblock %}
+
+{% block content %}
+<h4 id='message' style="color:white">{{message}}</h4>
+<form method="post">
+    <div class="form-group">
+        <label style="color:white">Listing: {{listing.title}}</label><br>
+
+        <label style="color:white">Listing Description: {{listing.description}}</label><br>
+
+        <label style="color:white">Listing Price: {{listing.price}}</label><br>
+
+        <label for="year" style="color:white">Enter Year</label><br>
+        <input class="form-control" style="color:white" type="number" id="year" name="year" required><br>
+
+        <label for="month" style="color:white">Enter Month</label><br>
+        <input class="form-control" style="color:white" type="number" id="month" name="month" required><br>
+
+        <label for="day" style="color:white">Enter Day</label><br>
+        <input class="form-control" style="color:white" type="number" id="day" name="day" required><br>
+
+        <input class="btn btn-primary" type="submit" value="Create Booking"><br>
+    </div>
+</form>
+<a href='/'>Back</a>
+{% endblock %}

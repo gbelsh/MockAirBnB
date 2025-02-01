@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<h1>{%block title%}Profile{%endblock%}</h1>
+{% endblock %}
+
+{% block content %}
+<h2 id="welcome-header">Welcome {{ user.username }} !</h2>
+
+<h3 id="balance">Balance: ${{user.balance}} </h3>
+
+<h2 id="listing-create">Want to Create a New Listing ----> <a href='/listing'>Click Here!</a></h2>
+
+<h2>Here Are Your Listings</h2>
+<div id="listings">
+    {% for listing in listings %}
+    <div>
+        <h4>Listing: {{ listing.title }} Price: {{ listing.price }} <a href='/updateListing/{{listing.owner_id}}'>update</a></h4>
+    </div>
+    {% endfor %}
+</div>
+
+
+<h2>Here Are All The Active Listings</h2>
+<div id="bookings">
+    {% for book in bookings %}
+    <div>
+        <h4>Listing: {{ book.title }} Price: {{ book.price }} Date: {{ book.last_modified_date }} <a href='/booking/{{book.owner_id}}/{{user.user_id}}'> Book Listing!</a></h4>
+    </div>
+    {% endfor %}
+</div>
+
+
+<h2>Here Are Your Current Bookings</h2>
+<div id="booked">
+    {% for bookedListing in booked %}
+    <div>
+        <h4>Listing: {{ bookedListing.title }} Price: {{ bookedListing.price }} Date: {{ bookedListing.date }}</h4>
+    </div>
+    {% endfor %}
+</div>
+
+
+
+<h2 id="billing-information">Billing Information:</h2>
+<p style="text-indent: 40px">Email: {{ user.email }}</p>
+<p style="text-indent: 40px">Username: {{ user.username }}</p>
+<p style="text-indent: 40px">Billing Address: {{ user.billing_address }}</p>
+<p style="text-indent: 40px">Postal Code: {{ user.postal_code }}</p>
+<a href='/updateUser'>Want to Update your Profile Click Here!</a><br><br>
+
+<a href='/logout'>logout</a>
+{% endblock %}

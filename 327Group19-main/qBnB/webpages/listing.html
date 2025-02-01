@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<h1>Listing Creation Page</h1>
+{% endblock %}
+
+{% block content %}
+<h4 id='message' style="color:white">{{message}}</h4>
+<form method="post">
+    <div class="form-group">
+        <label for="title" style="color:white">Title</label><br>
+        <small><font color = "white">(must be smaller than 80 character)</font></small><br>
+        <input class="form-control" style="color:white" id="title" name="title" required><br>
+
+        <label for="description" style="color:white">Description</label><br>
+        <small><font color = "white">(must be between 20 and 2000 characters and also larger than the Title)</font></small><br>
+        <textarea class="form-control" style="color:white" id="description" name="description" required></textarea><br>
+
+        <label for="price" style="color:white">Price</label><br>
+        <small><font color = "white">(must be between 10 and 10000 dollars)</font></small><br>
+        <input class="form-control" style="color:white" type="number" id="price" name="price" required><br><br>
+
+        <input class="btn btn-primary" type="submit" value="Create Listing"><br>
+    </div>
+</form>
+<a href='/'>Back</a>
+{% endblock %}
